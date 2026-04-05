@@ -1,0 +1,11 @@
+data/
+data_test/
+features/
+features_test/
+evaluation/
+__pycache__/
+*.pyc
+*.npy
+CLAUDE.md
+모델개발_계획.md
+작품설명서_시안.md
