@@ -57,7 +57,23 @@ SCENARIOS = [
 def inject_css():
     st.markdown("""
     <style>
-    .stApp { background-color: #F5F7FA; }
+    /* 다크모드 환경에서도 라이트 테마 강제 — 글씨 안 보이는 문제 방지 */
+    .stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] {
+        background-color: #F5F7FA !important;
+        color: #263238 !important;
+    }
+    .stApp *, [data-testid="stMarkdownContainer"], [data-testid="stWidgetLabel"],
+    label, .stSelectbox label, .stNumberInput label, .stTextInput label,
+    .stMarkdown, .stMarkdown p, .stMarkdown span,
+    [data-baseweb="select"] *, [data-baseweb="input"] * {
+        color: #263238 !important;
+    }
+    /* 입력 위젯 배경 */
+    [data-baseweb="select"] > div, [data-baseweb="input"] > div,
+    .stNumberInput input, .stTextInput input, .stSelectbox div[role="combobox"] {
+        background-color: #FFFFFF !important;
+        color: #263238 !important;
+    }
     header[data-testid="stHeader"] { display: none; }
 
     .equip-body {
